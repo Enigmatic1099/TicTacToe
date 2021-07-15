@@ -11,6 +11,7 @@ public:
     void changer_placer(unsigned int i, unsigned int j, char (&arr)[3][3], char ch);// this function changes the elements of the arr[3][3]
         bool wrongInputCharacterChecker(char (&arr)[3][3], unsigned int i, unsigned int j);// this function check if the element that we want to insert to is empty or occupied
     void changerCaller_inputMAker(unsigned int input, char (&arr)[3][3], char ch);// this functions calculates the cordinate of the input for the array
+    void setCleaner();
 private:
 //  this set is for inserting the inputs for checking duplicate in input check
     std::set<unsigned int> set;
@@ -72,7 +73,7 @@ bool Logic::winChecker(char (&arr)[3][3]){
 }
 bool Logic::inputChecker(unsigned int input, char (&arr)[3][3], char &ch){
     if(input > 9 || input < 1){
-        std::cout << "please Enter a number through 1 and 9" << std::endl;
+        std::cout << "please Enter a number through 1 to 9" << std::endl;
         return true;
     }
     else{
@@ -122,4 +123,7 @@ void Logic::changerCaller_inputMAker(unsigned int input, char (&arr)[3][3], char
             changer_placer(2, 2, arr, ch);
             break;
     }
+}
+void Logic::setCleaner(){
+    set.erase(set.begin(), set.end());
 }
